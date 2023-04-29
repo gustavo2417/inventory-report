@@ -23,7 +23,8 @@ class SimpleReport:
 
         return result
 
-    def get_company_with_more_products(list):
+    @staticmethod
+    def get_products_by_company(list):
         counter = {}
 
         for i in list:
@@ -31,7 +32,12 @@ class SimpleReport:
                 counter[i["nome_da_empresa"]] = 0
             counter[i["nome_da_empresa"]] += 1
 
-        return max(counter, key=counter.get)
+        return counter
+
+    def get_company_with_more_products(list):
+        result = SimpleReport.get_products_by_company(list)
+
+        return max(result, key=result.get)
 
     @staticmethod
     def generate(list):
