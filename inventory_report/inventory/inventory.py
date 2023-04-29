@@ -35,10 +35,10 @@ class inventory:
         result = None
         if type == "simples":
             list = inventory.simple_report(path)
-            result = SimpleReport(list)
+            result = SimpleReport.generate(list)
 
         elif type == "completo":
             list = inventory.complete_report(path)
-            result = CompleteReport(list)
+            result = CompleteReport.generate(list)
 
         return result
